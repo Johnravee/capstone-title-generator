@@ -1,7 +1,6 @@
 "use client"
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Separator } from "@/components/ui/separator";
 import {
   Accordion,
   AccordionContent,
@@ -36,11 +35,7 @@ export default function Home() {
     setPreference(value);
   };
 
-  // Initial data fetch for default preference
-  useEffect(() => {
-    fetchData(preference); 
-  }, []);
-
+  
   // Fetch data when preference changes
   useEffect(() => {
     fetchData(preference); 
@@ -48,10 +43,10 @@ export default function Home() {
 
   //Loop to generate data
   const handleGenerate = () : void =>{
-   
+    
     for(let i = 0, x = jsonData.length; i <= x; i++)
     {
-        let randomIndex = Math.round(Math.random() * x)
+        const randomIndex = Math.round(Math.random() * x)
         setGeneratedData(jsonData[randomIndex])
     }  
   }
